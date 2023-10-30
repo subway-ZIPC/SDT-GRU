@@ -128,7 +128,7 @@ class SpatialTemporalCell(nn.Module):
         hidden_r, hidden_i, hidden_n = self.gru_projection_h(hidden).chunk(3, -1)
         r = torch.sigmoid(input_r + hidden_r + self.bias_r_g)
         i = torch.sigmoid(input_i + hidden_i + self.bias_i_g)
-        n = torch.tanh(input_n + r * hidden_n + self.bias_i_g)
+        n = torch.tanh(input_n + r * hidden_n + self.bias_n_g)
         next_hidden = (1 - i) * n + i * hidden
 
         next_hidden = self.ln(next_hidden)
