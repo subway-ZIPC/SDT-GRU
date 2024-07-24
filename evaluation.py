@@ -1,4 +1,4 @@
-from model.DT_GRU import DT_GRU
+from model.SDT_GRUs import SDT_GRUs
 from trainer.train import gen_data, evaluate_model
 from utils import StandardScaler, get_logger
 
@@ -23,7 +23,7 @@ def get_pick_result(model_yaml_file, dataset_yaml_file, weight_path, log_dir):
     # for k, v in torch.load(weight_path, map_location=model_cfg['device']).items():
     #     print(k, v)
 
-    model = DT_GRU(model_cfg['model'])
+    model = SDT_GRUs(model_cfg['model'])
     model.to(model_cfg['device'])
     model.load_state_dict(torch.load(weight_path))
 
@@ -44,6 +44,6 @@ if __name__ == "__main__":
     log_dir = './log/Temp'
     model_yaml_file = './config/hz.yaml'
     dataset_yaml_file = './config/hz.yaml'
-    weight_path = './log/EX/HZ_single_TriMUL_0/best.pt'
+    weight_path = './log/HZ_DT_GRU/best.pt'
 
     get_pick_result(model_yaml_file, dataset_yaml_file, weight_path, log_dir)

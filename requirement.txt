@@ -1,6 +1,0 @@
-torch==2.0.0
-pyyaml
-pandas
-scipy
-tqdm
-matplotlib

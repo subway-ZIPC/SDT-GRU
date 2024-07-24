@@ -5,7 +5,7 @@ import yaml
 
 
 if __name__ == '__main__':
-    log_dir = 'log/Temp'
+    log_dir = 'log/HZ'
     logger = get_logger(log_dir)
 
     yaml_file = 'config/hz.yaml'
