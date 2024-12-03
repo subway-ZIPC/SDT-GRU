@@ -1,0 +1,35 @@
+loader: 'bj'
+dataset:
+  root: 'data/BEIJING_SUBWAY/BEIJING_SUBWAY_15MIN'
+  batch_size: 16
+  num_workers: 0
+
+model:
+  num_rnn_layers: 2
+  num_input_dim: 2
+  num_rnn_units: 128
+  num_nodes: 276
+  num_extra_embedding: [73, 2]
+  n_heads: 32
+  ffn_dim: 512
+  st_layers: 1
+  st_dropout_rate: 0.2
+  output_attention: False
+  use_curriculum_learning: True
+  cl_decay_steps: 200
+  use_input: True
+
+train:
+  epoch: 200
+  load_param: None
+  base_lr: 0.001
+  epsilon: 1.0e-8
+  weight_decay: 0.0
+  steps: [100, 150, 175]
+  lr_decay_ratio: 0.1
+  min_learning_rate: 1.0e-06
+  warm_up: True
+  warm_up_ep: 10
+  warm_up_lr: 0.0001
+  max_grad_norm: 5
+  save_every_n_epochs: 10
