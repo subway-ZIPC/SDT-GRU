@@ -1,5 +1,6 @@
 from loader.HZMetro import HZMetro
 from loader.SHMetro import SHMetro
+from loader.BJMetro import BJMetro
 from model.SDT_GRUs import SDT_GRUs
 from trainer import metrics
 from utils import StandardScaler, move2device, StepLR2
@@ -26,6 +27,8 @@ def gen_data(cfg, loader_type):
         data_set = HZMetro(cfg['dataset'], split=loader_type)
     elif cfg['loader'] == 'sh':
         data_set = SHMetro(cfg['dataset'], split=loader_type)
+    elif cfg['loader'] == 'bj':
+        data_set = BJMetro(cfg['dataset'], split=loader_type)
     else:
         raise 'Wrong Loader Name'
 
